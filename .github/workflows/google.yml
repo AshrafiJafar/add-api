@@ -45,3 +45,5 @@ jobs:
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/add-api:${{ env.VERSION }} # Tag with version
             ${{ secrets.DOCKERHUB_USERNAME }}/add-api:latest # Also tag as latest
+#git tag v1.0.0
+#git push origin v1.0.0
