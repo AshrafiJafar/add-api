@@ -33,8 +33,8 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}  # Use secrets for credentials
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          username: ${{secrets.DOCKERHUB_USERNAME}}  # Use secrets for credentials
+          password: ${{secrets.DOCKERHUB_PASSWORD}}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
@@ -43,7 +43,7 @@ jobs:
           file: Dockerfile # Path to your Dockerfile
           push: true     # Push the image to Docker Hub
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/add-api1:${{ env.VERSION }} # Tag with version
-            ${{ secrets.DOCKERHUB_USERNAME }}/add-api1:latest # Also tag as latest
+            ${{secrets.DOCKERHUB_USERNAME}}/add-api1:${{env.VERSION}} # Tag with version
+            ${{secrets.DOCKERHUB_USERNAME}}/add-api1:latest # Also tag as latest
 #git tag v1.0.0
 #git push origin v1.0.0
