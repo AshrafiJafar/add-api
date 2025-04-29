@@ -60,7 +60,7 @@ jobs:
         run: |
           kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/loadbalancer.yaml
-          kubectl rollout restart k8s/deployment.yaml
+          kubectl rollout restart deployment/add-api
 
 
 #git tag v1.0.0
