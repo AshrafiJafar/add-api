@@ -59,10 +59,7 @@ jobs:
           cluster-name: ${{ secrets.EKS_CLUSTER_NAME }} # Add EKS cluster name
     
       - name: Update kubeconfig
-        uses: aws-actions/configure-eks-credentials@v2 #configure  EKS credentials
-        with:
-          cluster-name: ${{ secrets.EKS_CLUSTER_NAME }}
-          aws-region: ${{ secrets.AWS_REGION }}
+        run: aws eks update-kubeconfig --region ${{secrets.AWS_REGION}} --name ${{secrets.EKS_CLUSTER_NAME}}
     
       - name: Deploy to EKS
         run: |
