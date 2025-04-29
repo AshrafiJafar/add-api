@@ -32,4 +32,9 @@ public class CalculatorController {
     public int health() {
         return 200;
     }
+
+    @GetMapping("/notHealth") // New endpoint to get all calculations
+    public int notHealth() {
+        return 200;
+    }
 }
