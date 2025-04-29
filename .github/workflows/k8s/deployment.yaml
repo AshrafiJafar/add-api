@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: add-api
+  #namespace: default if we don't assign namespace, it is default
+  labels:
+    app: add-api
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: add-api #Attention
+  template:
+    metadata:
+      labels:
+        app: add-api #Attention    !! pod respective lable in clusterip service !!
+        tier: backend
+    spec:
+      serviceAccountName: service-account-service
+      containers:
+      - name: add-api
+        image: ashrafij007/add-api1 # 034362048920.dkr.ecr.eu-west-1.amazonaws.com/add-api:latest
+        ports:
+        - containerPort: 8080
+  #*****Attention: these labeles should be same otherwise it will not work correctly
+
+  #aws eks update-kubeconfig --region eu-west-1 --name eks-cluster
+
+  #aws eks update-kubeconfig --region us-east-1 --name eks-cluster
+  #kubectl apply -f deployment.yaml
+  #kubectl apply -f service.yaml
+  #kubectl apply -f clusterip-service.yaml
+  #kubectl apply -f service-account.yaml
+
+
+  #to check application logs
+  #kubectl get pods
+  #kubectl logs <pod-name>
+
+  #kubectl get nodes -o wide
+  #kubectl get services
+  #kubectl describe service <service-name>
+  #kubectl describe service add-api-service
+
+
+  #kubectl delete all --all --all-namespaces
+
+  #kubectl exec -it add-api-deployment-6f8d69b4f4-rwnj8 -- /bin/bash  #to connect to the pod
+
+  #3.235.106.4/swagger-ui/index.html
+
+  #to get ip of loadbalancer service we need to use this and get external-ip from service
+  #kubectl get svc
