@@ -69,3 +69,5 @@ jobs:
 #To delete created tag these command needed first delete locally and second delete from remote repository
 #git tag -d v1.0.0
 #git push origin --delete v1.0.0
+
+#git tag -d $(git tag -l "v1.0.*")
