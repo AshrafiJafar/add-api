@@ -43,8 +43,8 @@ jobs:
           file: Dockerfile # Path to your Dockerfile
           push: true     # Push the image to Docker Hub
           tags: |
-            ${{secrets.DOCKERHUB_USERNAME}}/add-api1:${{env.VERSION}}
-            ${{secrets.DOCKERHUB_USERNAME}}/add-api1:latest
+            ${{secrets.DOCKERHUB_USERNAME}}/add-api:${{env.VERSION}}
+            ${{secrets.DOCKERHUB_USERNAME}}/add-api:latest
       
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
