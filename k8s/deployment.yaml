@@ -20,9 +20,10 @@ spec:
       serviceAccountName: sm-service-account
       containers:
       - name: add-api
-        image: ashrafij007/add-api # 034362048920.dkr.ecr.eu-west-1.amazonaws.com/add-api:latest
+        image: ashrafij007/add-api1 # 034362048920.dkr.ecr.eu-west-1.amazonaws.com/add-api:latest
         ports:
         - containerPort: 8080
+
   #*****Attention: these labeles should be same otherwise it will not work correctly
 
   #aws eks update-kubeconfig --region eu-west-1 --name eks-cluster
@@ -52,3 +53,5 @@ spec:
 
   #to get ip of loadbalancer service we need to use this and get external-ip from service
   #kubectl get svc
+
+  #User: arn:aws:sts::034362048920:assumed-role/eks-node-group-eks-node-group-20250508073700781500000002/i-061b2a7b0279cc054
