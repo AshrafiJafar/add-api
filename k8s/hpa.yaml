@@ -16,10 +16,21 @@ spec:
       name: cpu
       target:
         type: Utilization
-        averageUtilization: 50
+        averageUtilization: 80
   - type: Resource
     resource:
       name: memory
       target:
         type: Utilization
-        averageUtilization: 70
+        averageUtilization: 85
+  behavior:
+    scaleUp:
+      stabilizationWindowSeconds: 60  # Prevents immediate scale-ups
+#kubectl describe hpa add-api-hpa
+#kubectl scale deployment add-api --replicas=1
+
+#This continuously consumes CPU cycles.
+#kubectl exec -it add-api-<pod-id> -- /bin/sh -c "dd if=/dev/zero of=/dev/null &"
+
+#This allocates 200MB of memory rapidly.
+#kubectl exec -it add-api-<pod-id> -- /bin/sh -c "head -c 200M < /dev/urandom > /dev/null &"
