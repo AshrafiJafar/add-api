@@ -63,7 +63,7 @@ jobs:
           kubectl rollout restart deployment/add-api
       
       - name: Create Horizontal Pod Aotoscaler
-        run:
+        run: |
           kubectl apply -f k8s/metrics-server.yaml
           kubectl apply -f k8s/cluster-role-for-hpa.yaml
           kubectl apply -f k8s/cluster-role-binding.yaml
