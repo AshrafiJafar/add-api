@@ -61,9 +61,9 @@ jobs:
           kubectl apply -f k8s/deployment.yaml
           kubectl rollout restart deployment/add-api
       
-      - name: Create Horizontal Pod Aotoscaler
-        run: |
-          kubectl apply -f k8s/hpa.yaml
+      # - name: Create Horizontal Pod Aotoscaler
+      #   run: |
+      #     kubectl apply -f k8s/hpa.yaml
       # - name: Create Horizontal Pod Aotoscaler
       #   run: |
       #     kubectl apply -f k8s/metrics-server.yaml

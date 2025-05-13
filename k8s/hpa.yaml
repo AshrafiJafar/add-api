@@ -27,10 +27,13 @@ spec:
     scaleUp:
       stabilizationWindowSeconds: 60  # Prevents immediate scale-ups
 #kubectl describe hpa add-api-hpa
+#kubectl get hpa add-api-hpa -w
 #kubectl scale deployment add-api --replicas=1
 
 #This continuously consumes CPU cycles.
-#kubectl exec -it add-api-<pod-id> -- /bin/sh -c "dd if=/dev/zero of=/dev/null &"
+#kubectl exec -it <frontend-pod-name> -- /bin/sh
+#after inside
+#while true; do :; done
 
 #This allocates 200MB of memory rapidly.
 #kubectl exec -it add-api-<pod-id> -- /bin/sh -c "head -c 200M < /dev/urandom > /dev/null &"
