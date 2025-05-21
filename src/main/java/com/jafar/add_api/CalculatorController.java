@@ -32,4 +32,10 @@ public class CalculatorController {
     public int health() {
         return 200;
     }
+
+    @GetMapping("/pod-name")
+    public String getPodName() {
+        String podName = System.getenv("HOSTNAME");
+        return podName != null ? podName : "Unknown Pod";
+    }
 }
